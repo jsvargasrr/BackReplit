@@ -1,0 +1,35 @@
+---
+name: Continuos integracion
+
+on:
+  push:
+    branches:
+      - preprod
+      - hotfix
+      - 'release/**'
+  pull_request:
+    types:
+      - opened
+    branches:
+      - development
+  pull_request_target:
+    types:
+      - closed
+    branches:
+      - development
+      - 'release/**'
+      - hotfix
+      - preprod
+      - production
+      - main
+
+jobs:
+  continuos_integration:
+    name: '[CI]'
+    uses: nuamx/devops_resources/.github/workflows/CI-java-main_facade.yml@main
+    secrets: inherit
+    with:
+      java_version: 17
+      java_distribution: 'temurin'
+      registry_project: 'nubo'
+      registry_repository: 'maestro-participante-back'

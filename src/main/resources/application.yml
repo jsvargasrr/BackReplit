@@ -1,0 +1,26 @@
+spring:
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE}
+  application:
+    name: @project.name@
+    type: service
+server:
+  servlet:
+    context-path: /${spring.application.name}
+application:
+  version: @project.version@
+  description: 'Documentation Endpoints'
+  title: @project.description@
+  group: ${spring.application.name}
+management:
+  health:
+    probes:
+      enabled: true
+      livenessState:
+        enabled: true
+      readinessState:
+        enabled: true
+  endpoint:
+    health:
+      probes:
+        enabled: true

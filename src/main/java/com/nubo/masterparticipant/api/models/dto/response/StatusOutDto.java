@@ -1,0 +1,22 @@
+package com.nubo.masterparticipant.api.models.dto.response;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@JsonInclude(JsonInclude.Include.ALWAYS)
+public class StatusOutDto {
+
+    private Long id;
+
+    private String description;
+
+    private String category;
+
+}
